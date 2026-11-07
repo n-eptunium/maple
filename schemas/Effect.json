@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "at_ms": {
+      "title": "At Ms",
+      "type": "integer"
+    },
+    "params": {
+      "additionalProperties": true,
+      "title": "Params",
+      "type": "object"
+    },
+    "type": {
+      "enum": [
+        "zoom_punch",
+        "shake",
+        "flash",
+        "slowmo"
+      ],
+      "title": "Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "at_ms",
+    "params"
+  ],
+  "title": "Effect",
+  "type": "object"
+}

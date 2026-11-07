@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "rate": {
+      "title": "Rate",
+      "type": "number"
+    },
+    "src_end_ms": {
+      "title": "Src End Ms",
+      "type": "integer"
+    },
+    "src_start_ms": {
+      "title": "Src Start Ms",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "src_start_ms",
+    "src_end_ms",
+    "rate"
+  ],
+  "title": "SpeedSegment",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "cx": {
+      "title": "Cx",
+      "type": "number"
+    },
+    "t_ms": {
+      "title": "T Ms",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "t_ms",
+    "cx"
+  ],
+  "title": "ReframeKey",
+  "type": "object"
+}

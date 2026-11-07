@@ -1,0 +1,777 @@
+{
+  "$defs": {
+    "Caption": {
+      "properties": {
+        "end_ms": {
+          "title": "End Ms",
+          "type": "integer"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "start_ms": {
+          "title": "Start Ms",
+          "type": "integer"
+        },
+        "text_override": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text Override"
+        },
+        "words": {
+          "items": {
+            "$ref": "#/$defs/Word"
+          },
+          "title": "Words",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "start_ms",
+        "end_ms",
+        "words"
+      ],
+      "title": "Caption",
+      "type": "object"
+    },
+    "CaptionBox": {
+      "properties": {
+        "w": {
+          "default": 0.8,
+          "title": "W",
+          "type": "number"
+        },
+        "x": {
+          "default": 0.5,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "default": 0.72,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "title": "CaptionBox",
+      "type": "object"
+    },
+    "CaptionTrack": {
+      "properties": {
+        "box": {
+          "$ref": "#/$defs/CaptionBox"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Caption"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "source": {
+          "default": "manual",
+          "enum": [
+            "asr",
+            "manual",
+            "hltv"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "style_id": {
+          "default": "classic",
+          "title": "Style Id",
+          "type": "string"
+        }
+      },
+      "title": "CaptionTrack",
+      "type": "object"
+    },
+    "Effect": {
+      "properties": {
+        "at_ms": {
+          "title": "At Ms",
+          "type": "integer"
+        },
+        "params": {
+          "additionalProperties": true,
+          "title": "Params",
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "zoom_punch",
+            "shake",
+            "flash",
+            "slowmo"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "at_ms",
+        "params"
+      ],
+      "title": "Effect",
+      "type": "object"
+    },
+    "Highlight": {
+      "properties": {
+        "action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Action"
+        },
+        "embed_url": {
+          "title": "Embed Url",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "map": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Map"
+        },
+        "player": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Player"
+        },
+        "round": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Round"
+        },
+        "source": {
+          "enum": [
+            "twitch",
+            "youtube",
+            "other"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Team"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "embed_url",
+        "source",
+        "player",
+        "team",
+        "map",
+        "round",
+        "action"
+      ],
+      "title": "Highlight",
+      "type": "object"
+    },
+    "MapScore": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "score_a": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score A"
+        },
+        "score_b": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score B"
+        }
+      },
+      "required": [
+        "name",
+        "score_a",
+        "score_b"
+      ],
+      "title": "MapScore",
+      "type": "object"
+    },
+    "Match": {
+      "properties": {
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "event": {
+          "title": "Event",
+          "type": "string"
+        },
+        "highlights": {
+          "items": {
+            "$ref": "#/$defs/Highlight"
+          },
+          "title": "Highlights",
+          "type": "array"
+        },
+        "hltv_id": {
+          "title": "Hltv Id",
+          "type": "integer"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/$defs/MapScore"
+          },
+          "title": "Maps",
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/$defs/Team"
+          },
+          "title": "Teams",
+          "type": "array"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "hltv_id",
+        "url",
+        "event",
+        "date",
+        "teams",
+        "maps",
+        "highlights"
+      ],
+      "title": "Match",
+      "type": "object"
+    },
+    "MediaInfo": {
+      "properties": {
+        "duration_ms": {
+          "title": "Duration Ms",
+          "type": "integer"
+        },
+        "fps": {
+          "title": "Fps",
+          "type": "number"
+        },
+        "has_audio": {
+          "title": "Has Audio",
+          "type": "boolean"
+        },
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sample_rate": {
+          "title": "Sample Rate",
+          "type": "integer"
+        },
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "duration_ms",
+        "width",
+        "height",
+        "fps",
+        "has_audio",
+        "sample_rate"
+      ],
+      "title": "MediaInfo",
+      "type": "object"
+    },
+    "Music": {
+      "properties": {
+        "caster_gain_db": {
+          "default": 0,
+          "title": "Caster Gain Db",
+          "type": "number"
+        },
+        "duck_db": {
+          "default": 0,
+          "title": "Duck Db",
+          "type": "number"
+        },
+        "gain_db": {
+          "default": -6,
+          "title": "Gain Db",
+          "type": "number"
+        },
+        "hit_ms": {
+          "title": "Hit Ms",
+          "type": "integer"
+        },
+        "offset_ms": {
+          "title": "Offset Ms",
+          "type": "integer"
+        },
+        "track_id": {
+          "title": "Track Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "track_id",
+        "hit_ms",
+        "offset_ms"
+      ],
+      "title": "Music",
+      "type": "object"
+    },
+    "Post": {
+      "properties": {
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "hashtags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Hashtags",
+          "type": "array"
+        },
+        "tiktok": {
+          "$ref": "#/$defs/TikTokPost"
+        },
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "youtube": {
+          "$ref": "#/$defs/YouTubePost"
+        }
+      },
+      "title": "Post",
+      "type": "object"
+    },
+    "Reframe": {
+      "properties": {
+        "keys": {
+          "items": {
+            "$ref": "#/$defs/ReframeKey"
+          },
+          "title": "Keys",
+          "type": "array"
+        },
+        "mode": {
+          "default": "center",
+          "enum": [
+            "center",
+            "keys",
+            "auto"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "zoom": {
+          "default": 1.0,
+          "title": "Zoom",
+          "type": "number"
+        }
+      },
+      "title": "Reframe",
+      "type": "object"
+    },
+    "ReframeKey": {
+      "properties": {
+        "cx": {
+          "title": "Cx",
+          "type": "number"
+        },
+        "t_ms": {
+          "title": "T Ms",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "t_ms",
+        "cx"
+      ],
+      "title": "ReframeKey",
+      "type": "object"
+    },
+    "RenderRecord": {
+      "properties": {
+        "created": {
+          "title": "Created",
+          "type": "string"
+        },
+        "duration_ms": {
+          "title": "Duration Ms",
+          "type": "integer"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "created",
+        "duration_ms",
+        "size_bytes",
+        "sha256"
+      ],
+      "title": "RenderRecord",
+      "type": "object"
+    },
+    "SpeedSegment": {
+      "properties": {
+        "rate": {
+          "title": "Rate",
+          "type": "number"
+        },
+        "src_end_ms": {
+          "title": "Src End Ms",
+          "type": "integer"
+        },
+        "src_start_ms": {
+          "title": "Src Start Ms",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "src_start_ms",
+        "src_end_ms",
+        "rate"
+      ],
+      "title": "SpeedSegment",
+      "type": "object"
+    },
+    "Team": {
+      "properties": {
+        "hltv_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Hltv Id"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hltv_id"
+      ],
+      "title": "Team",
+      "type": "object"
+    },
+    "TikTokPost": {
+      "properties": {
+        "mode": {
+          "default": "inbox_draft",
+          "title": "Mode",
+          "type": "string"
+        },
+        "publish_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Publish Id"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status"
+        }
+      },
+      "title": "TikTokPost",
+      "type": "object"
+    },
+    "Trim": {
+      "properties": {
+        "in_ms": {
+          "title": "In Ms",
+          "type": "integer"
+        },
+        "out_ms": {
+          "title": "Out Ms",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "in_ms",
+        "out_ms"
+      ],
+      "title": "Trim",
+      "type": "object"
+    },
+    "Word": {
+      "properties": {
+        "conf": {
+          "default": 1.0,
+          "title": "Conf",
+          "type": "number"
+        },
+        "emphasis": {
+          "default": false,
+          "title": "Emphasis",
+          "type": "boolean"
+        },
+        "end_ms": {
+          "title": "End Ms",
+          "type": "integer"
+        },
+        "is_name": {
+          "default": false,
+          "title": "Is Name",
+          "type": "boolean"
+        },
+        "start_ms": {
+          "title": "Start Ms",
+          "type": "integer"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "start_ms",
+        "end_ms"
+      ],
+      "title": "Word",
+      "type": "object"
+    },
+    "YouTubePost": {
+      "properties": {
+        "privacy": {
+          "default": "private",
+          "title": "Privacy",
+          "type": "string"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status"
+        },
+        "video_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Video Id"
+        }
+      },
+      "title": "YouTubePost",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "captions": {
+      "$ref": "#/$defs/CaptionTrack"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string"
+    },
+    "effects": {
+      "items": {
+        "$ref": "#/$defs/Effect"
+      },
+      "title": "Effects",
+      "type": "array"
+    },
+    "highlight_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Highlight Id"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "match": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Match"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "music": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Music"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "post": {
+      "$ref": "#/$defs/Post"
+    },
+    "reframe": {
+      "$ref": "#/$defs/Reframe"
+    },
+    "renders": {
+      "items": {
+        "$ref": "#/$defs/RenderRecord"
+      },
+      "title": "Renders",
+      "type": "array"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/MediaInfo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "speed": {
+      "items": {
+        "$ref": "#/$defs/SpeedSegment"
+      },
+      "title": "Speed",
+      "type": "array"
+    },
+    "trim": {
+      "$ref": "#/$defs/Trim"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "created",
+    "match",
+    "highlight_id",
+    "source",
+    "trim",
+    "reframe",
+    "music",
+    "captions",
+    "post"
+  ],
+  "title": "Project",
+  "type": "object"
+}

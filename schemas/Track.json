@@ -1,0 +1,146 @@
+{
+  "$defs": {
+    "Licence": {
+      "properties": {
+        "attribution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Attribution"
+        },
+        "platforms": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Platforms",
+          "type": "array"
+        },
+        "proof": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Proof"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Url"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "verified": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Verified"
+        }
+      },
+      "required": [
+        "type",
+        "source_url",
+        "proof",
+        "platforms",
+        "attribution",
+        "verified"
+      ],
+      "title": "Licence",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "analyzed_at": {
+      "title": "Analyzed At",
+      "type": "string"
+    },
+    "artist": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Artist"
+    },
+    "beats_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Beats Ms",
+      "type": "array"
+    },
+    "bpm": {
+      "title": "Bpm",
+      "type": "number"
+    },
+    "drop_candidates_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Drop Candidates Ms",
+      "type": "array"
+    },
+    "drop_ms": {
+      "title": "Drop Ms",
+      "type": "integer"
+    },
+    "duration_ms": {
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "licence": {
+      "$ref": "#/$defs/Licence"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "path",
+    "title",
+    "artist",
+    "duration_ms",
+    "bpm",
+    "beats_ms",
+    "drop_ms",
+    "drop_candidates_ms",
+    "licence",
+    "analyzed_at"
+  ],
+  "title": "Track",
+  "type": "object"
+}

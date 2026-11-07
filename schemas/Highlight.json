@@ -1,0 +1,93 @@
+{
+  "properties": {
+    "action": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Action"
+    },
+    "embed_url": {
+      "title": "Embed Url",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "map": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Map"
+    },
+    "player": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Player"
+    },
+    "round": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Round"
+    },
+    "source": {
+      "enum": [
+        "twitch",
+        "youtube",
+        "other"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "team": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "embed_url",
+    "source",
+    "player",
+    "team",
+    "map",
+    "round",
+    "action"
+  ],
+  "title": "Highlight",
+  "type": "object"
+}

@@ -1,0 +1,80 @@
+.pill,
+.accent-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 70ms ease-out, box-shadow 70ms ease-out, background-color 120ms;
+}
+
+/* PillButton: white, ink, solid line shadow. */
+.pill {
+  background: var(--panel);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  box-shadow: 0 3px 0 var(--line);
+}
+.pill:hover:not(:disabled),
+.pill.is-hover {
+  background: #f5f8fd;
+}
+.pill:active:not(:disabled),
+.pill.is-pressed {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+.pill.is-selected {
+  border-color: var(--sel);
+}
+.pill:disabled {
+  color: var(--muted);
+  background: var(--bg);
+  cursor: not-allowed;
+}
+
+/* White pill sitting on the blue scene: shadow in darker scene blue. */
+.pill.on-scene {
+  border-color: var(--panel);
+  box-shadow: 0 4px 0 var(--scene-d);
+}
+.pill.on-scene:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* White pill on the navy stage. */
+.pill.on-stage {
+  border-color: var(--panel);
+  box-shadow: 0 3px 0 var(--stage-d);
+}
+
+/* AccentButton: the one main action per screen. */
+.accent-btn {
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 0 var(--accent-d);
+  padding: 9px 22px;
+  font-weight: 700;
+}
+.accent-btn:hover:not(:disabled),
+.accent-btn.is-hover {
+  background: #4169ff;
+  border-color: #4169ff;
+}
+.accent-btn:active:not(:disabled),
+.accent-btn.is-pressed {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+.accent-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

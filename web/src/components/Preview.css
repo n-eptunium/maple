@@ -1,0 +1,92 @@
+/* Burned-in caption font (not app chrome): the same static Dosis-Bold.ttf the renderer uses. */
+@font-face {
+  font-family: 'Dosis';
+  src: url('/fonts/Dosis-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: block;
+}
+
+/* Preview of the default "classic" CaptionStyle, scaled to the preview frame. */
+.caption-text {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  line-height: 1.05;
+  /* glow: black 8px outline + 12px blur at 1080p, scaled down */
+  text-shadow:
+    0 0 2px #000, 0 0 2px #000, 0 0 3px #000, 0 0 4px #000;
+}
+
+.caption-box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  cursor: move;
+  touch-action: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.caption-box:hover {
+  border-style: solid;
+}
+.caption-box.is-dragging {
+  border: 2px solid var(--sel);
+  outline: 2px solid var(--sel);
+}
+.caption-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 2px solid var(--sel);
+}
+.caption-handle[data-h='n'],
+.caption-handle[data-h='s'] {
+  cursor: ns-resize;
+}
+.caption-handle[data-h='e'],
+.caption-handle[data-h='w'] {
+  cursor: ew-resize;
+}
+.caption-handle[data-h='nw'],
+.caption-handle[data-h='se'] {
+  cursor: nwse-resize;
+}
+.caption-handle[data-h='ne'],
+.caption-handle[data-h='sw'] {
+  cursor: nesw-resize;
+}
+.snap-line {
+  position: absolute;
+  background: var(--sel);
+  pointer-events: none;
+}
+.snap-line.is-x {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+.snap-line.is-y {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.safe-zones {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.safe-band {
+  position: absolute;
+  background: rgba(255, 42, 42, 0.22);
+}

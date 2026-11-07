@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "duration_ms": {
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "fps": {
+      "title": "Fps",
+      "type": "number"
+    },
+    "has_audio": {
+      "title": "Has Audio",
+      "type": "boolean"
+    },
+    "height": {
+      "title": "Height",
+      "type": "integer"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    },
+    "sample_rate": {
+      "title": "Sample Rate",
+      "type": "integer"
+    },
+    "width": {
+      "title": "Width",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "path",
+    "duration_ms",
+    "width",
+    "height",
+    "fps",
+    "has_audio",
+    "sample_rate"
+  ],
+  "title": "MediaInfo",
+  "type": "object"
+}

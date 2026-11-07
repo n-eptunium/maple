@@ -1,0 +1,31 @@
+.card {
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 0 4px 0 var(--line);
+  padding: 16px;
+}
+.card.on-stage {
+  box-shadow: 0 4px 0 var(--stage-d);
+}
+.card.is-selected {
+  outline: 3px solid var(--sel);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.tag.is-gold {
+  background: var(--gold);
+  color: var(--ink);
+}

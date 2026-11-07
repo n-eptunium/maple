@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cs2shorts"
+version = "0.1.0"
+description = "Turn CS2 pro match highlights from HLTV into 9:16 Shorts and TikToks."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic>=2",
+  "pydantic-settings",
+  "typer",
+  "httpx",
+  "curl_cffi",
+  "playwright",
+  "beautifulsoup4",
+  "lxml",
+  "yt-dlp",
+  "numpy",
+  "opencv-python",
+  "librosa>=1.0",
+  "soundfile",
+  "fonttools",
+  "keyring",
+  "google-api-python-client",
+  "google-auth-oauthlib",
+  # MLX only exists on Apple Silicon; the markers let CI on Linux still install the rest.
+  "parakeet-mlx; sys_platform == 'darwin'",
+  "mlx-whisper; sys_platform == 'darwin'",
+  "websockets",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff", "mypy", "pytest-httpx"]
+
+[project.scripts]
+cs2shorts = "cs2shorts.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cs2shorts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = true

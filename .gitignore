@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+.env
+.DS_Store
+
+# Fonts are fetched by `python -m cs2shorts.tools.fetch_fonts`
+assets/fonts/*.ttf
+assets/fonts/OFL-*.txt
+web/public/fonts/
+
+web/node_modules/
+web/dist/

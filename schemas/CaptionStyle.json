@@ -1,0 +1,176 @@
+{
+  "$defs": {
+    "AnimIn": {
+      "properties": {
+        "duration_ms": {
+          "default": 67,
+          "title": "Duration Ms",
+          "type": "integer"
+        },
+        "ease": {
+          "default": 0.6,
+          "title": "Ease",
+          "type": "number"
+        },
+        "from_scale": {
+          "default": 0.95,
+          "title": "From Scale",
+          "type": "number"
+        },
+        "type": {
+          "default": "pop",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "title": "AnimIn",
+      "type": "object"
+    },
+    "AnimOut": {
+      "properties": {
+        "type": {
+          "default": "none",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "title": "AnimOut",
+      "type": "object"
+    },
+    "Glow": {
+      "properties": {
+        "blur_px": {
+          "default": 12,
+          "title": "Blur Px",
+          "type": "integer"
+        },
+        "color": {
+          "default": "#000000",
+          "title": "Color",
+          "type": "string"
+        },
+        "outline_px": {
+          "default": 8,
+          "title": "Outline Px",
+          "type": "integer"
+        }
+      },
+      "title": "Glow",
+      "type": "object"
+    },
+    "Shadow": {
+      "properties": {
+        "dx": {
+          "default": 0,
+          "title": "Dx",
+          "type": "integer"
+        },
+        "dy": {
+          "default": 0,
+          "title": "Dy",
+          "type": "integer"
+        }
+      },
+      "title": "Shadow",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "anim_in": {
+      "$ref": "#/$defs/AnimIn"
+    },
+    "anim_out": {
+      "$ref": "#/$defs/AnimOut"
+    },
+    "emphasis_fill": {
+      "default": "#FF2A2A",
+      "title": "Emphasis Fill",
+      "type": "string"
+    },
+    "fill": {
+      "default": "#FFFFFF",
+      "title": "Fill",
+      "type": "string"
+    },
+    "font_family": {
+      "default": "Dosis",
+      "title": "Font Family",
+      "type": "string"
+    },
+    "font_file": {
+      "default": "Dosis-Bold.ttf",
+      "title": "Font File",
+      "type": "string"
+    },
+    "font_px": {
+      "default": 116,
+      "title": "Font Px",
+      "type": "integer"
+    },
+    "glow": {
+      "$ref": "#/$defs/Glow"
+    },
+    "hold_gap_ms": {
+      "default": 600,
+      "title": "Hold Gap Ms",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "keep_names": {
+      "default": false,
+      "title": "Keep Names",
+      "type": "boolean"
+    },
+    "letter_spacing_px": {
+      "default": 2,
+      "title": "Letter Spacing Px",
+      "type": "integer"
+    },
+    "lowercase": {
+      "default": true,
+      "title": "Lowercase",
+      "type": "boolean"
+    },
+    "max_chars_per_line": {
+      "default": 16,
+      "title": "Max Chars Per Line",
+      "type": "integer"
+    },
+    "max_lines": {
+      "default": 2,
+      "title": "Max Lines",
+      "type": "integer"
+    },
+    "max_words": {
+      "default": 4,
+      "title": "Max Words",
+      "type": "integer"
+    },
+    "min_duration_ms": {
+      "default": 400,
+      "title": "Min Duration Ms",
+      "type": "integer"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "shadow": {
+      "$ref": "#/$defs/Shadow"
+    },
+    "tail_ms": {
+      "default": 300,
+      "title": "Tail Ms",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "title": "CaptionStyle",
+  "type": "object"
+}

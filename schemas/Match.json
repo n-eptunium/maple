@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "Highlight": {
+      "properties": {
+        "action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Action"
+        },
+        "embed_url": {
+          "title": "Embed Url",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "map": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Map"
+        },
+        "player": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Player"
+        },
+        "round": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Round"
+        },
+        "source": {
+          "enum": [
+            "twitch",
+            "youtube",
+            "other"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Team"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "embed_url",
+        "source",
+        "player",
+        "team",
+        "map",
+        "round",
+        "action"
+      ],
+      "title": "Highlight",
+      "type": "object"
+    },
+    "MapScore": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "score_a": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score A"
+        },
+        "score_b": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score B"
+        }
+      },
+      "required": [
+        "name",
+        "score_a",
+        "score_b"
+      ],
+      "title": "MapScore",
+      "type": "object"
+    },
+    "Team": {
+      "properties": {
+        "hltv_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Hltv Id"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hltv_id"
+      ],
+      "title": "Team",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "date": {
+      "title": "Date",
+      "type": "string"
+    },
+    "event": {
+      "title": "Event",
+      "type": "string"
+    },
+    "highlights": {
+      "items": {
+        "$ref": "#/$defs/Highlight"
+      },
+      "title": "Highlights",
+      "type": "array"
+    },
+    "hltv_id": {
+      "title": "Hltv Id",
+      "type": "integer"
+    },
+    "maps": {
+      "items": {
+        "$ref": "#/$defs/MapScore"
+      },
+      "title": "Maps",
+      "type": "array"
+    },
+    "teams": {
+      "items": {
+        "$ref": "#/$defs/Team"
+      },
+      "title": "Teams",
+      "type": "array"
+    },
+    "url": {
+      "title": "Url",
+      "type": "string"
+    }
+  },
+  "required": [
+    "hltv_id",
+    "url",
+    "event",
+    "date",
+    "teams",
+    "maps",
+    "highlights"
+  ],
+  "title": "Match",
+  "type": "object"
+}

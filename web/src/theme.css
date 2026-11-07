@@ -1,0 +1,93 @@
+/* CS2 Shorts design tokens. Every UI file imports this. App chrome only:
+   the caption style burned into the video is defined elsewhere. */
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('/fonts/Fredoka.ttf') format('truetype-variations'),
+    url('/fonts/Fredoka.ttf') format('truetype');
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+:root {
+  --bg:       #e8eef6;  /* light blue-grey background */
+  --panel:    #ffffff;  /* white panels and cards */
+  --ink:      #1f2940;  /* main text, deep navy-black */
+  --muted:    #7d889e;  /* secondary text */
+  --line:     #d2dbe8;  /* thin borders and dividers */
+  --sel:      #19c3f0;  /* bright cyan: whatever is selected */
+  --accent:   #2f5bff;  /* royal blue: the one main action */
+  --accent-d: #1e3fc4;  /* darker blue: the accent's solid shadow */
+  --good:     #2ec76b;  /* green: done or success only */
+  --gold:     #ffd23f;  /* highlights */
+  --stage:    #141c46;  /* deep navy: preview and timeline surround */
+  --scene:    #2f7bff;  /* bright blue: full-screen fun screens */
+  --font: 'Fredoka', system-ui, sans-serif;
+
+  /* Derived shades for solid shadows (darker version of the surface below). */
+  --good-d:   #1f9a50;
+  --scene-d:  #1e3fc4;
+  --stage-d:  #070b24;
+
+  --r-card: 16px;
+  --r-panel: 20px;
+  --pop: cubic-bezier(.2, 1.4, .4, 1);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+/* Selected: cyan with ink text, shadow untouched. */
+.is-selected {
+  background: var(--sel) !important;
+  color: var(--ink) !important;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pop-in {
+  animation: pop-in 320ms var(--pop) both;
+}
