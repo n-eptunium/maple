@@ -127,6 +127,16 @@ class MapScore(BaseModel):
     score_b: int | None
 
 
+class RosterPlayer(BaseModel):
+    name: str
+    hltv_id: int | None = None
+
+
+class Roster(BaseModel):
+    team: str | None = None
+    players: list[RosterPlayer] = Field(default_factory=list)
+
+
 class Match(BaseModel):
     hltv_id: int
     url: str
@@ -135,6 +145,9 @@ class Match(BaseModel):
     teams: list[Team]
     maps: list[MapScore]
     highlights: list[Highlight]
+    rosters: list[Roster] = Field(default_factory=list)
+    # Selectors that found nothing; the parser degrades instead of failing.
+    warnings: list[str] = Field(default_factory=list)
 
 
 # --- music ------------------------------------------------------------------

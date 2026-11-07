@@ -130,6 +130,56 @@
       "title": "MapScore",
       "type": "object"
     },
+    "Roster": {
+      "properties": {
+        "players": {
+          "items": {
+            "$ref": "#/$defs/RosterPlayer"
+          },
+          "title": "Players",
+          "type": "array"
+        },
+        "team": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Team"
+        }
+      },
+      "title": "Roster",
+      "type": "object"
+    },
+    "RosterPlayer": {
+      "properties": {
+        "hltv_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hltv Id"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "RosterPlayer",
+      "type": "object"
+    },
     "Team": {
       "properties": {
         "hltv_id": {
@@ -183,6 +233,13 @@
       "title": "Maps",
       "type": "array"
     },
+    "rosters": {
+      "items": {
+        "$ref": "#/$defs/Roster"
+      },
+      "title": "Rosters",
+      "type": "array"
+    },
     "teams": {
       "items": {
         "$ref": "#/$defs/Team"
@@ -193,6 +250,13 @@
     "url": {
       "title": "Url",
       "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
     }
   },
   "required": [
